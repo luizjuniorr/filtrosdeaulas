@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WebAulas | Conteúdo e Avaliações</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="data/disciplinas.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="bg-orb bg-orb-a"></div>
+    <div class="bg-orb bg-orb-b"></div>
+    <div class="noise"></div>
+
+    <main class="app-shell">
+      <header class="hero card">
+        <div class="hero-copy">
+          <p class="eyebrow">Plano de ensino inteligente</p>
+          <h1>O que vai ter hoje ou na próxima aula, e qual avaliação está mais próxima</h1>
+          <p class="lede">
+            Os PDFs da pasta são lidos e organizados automaticamente. O painel destaca o conteúdo do dia
+            considerando apenas aulas de terça, quarta e quinta, além do próximo instrumento avaliativo.
+          </p>
+        </div>
+        <div class="hero-side">
+          <div class="pill" id="generated-at">Atualizando dados...</div>
+          <div class="pill accent">Aulas ativas: terça, quarta e quinta</div>
+          <div class="pill muted" id="today-pill"></div>
+        </div>
+      </header>
+
+      <section class="highlights" aria-label="Resumo principal">
+        <article class="spotlight card spotlight-primary">
+          <div class="spotlight-head">
+            <div>
+              <div class="spotlight-label">Próximas aulas</div>
+              <h2 id="next-class-title">Carregando...</h2>
+            </div>
+            <div class="spotlight-date">
+              <label for="date-picker" id="date-picker-label">Escolha uma data de terça, quarta ou quinta</label>
+              <select id="date-picker" aria-label="Escolha uma data de aula"></select>
+            </div>
+          </div>
+          <div id="next-class-summary"></div>
+          <div class="spotlight-meta" id="next-class-meta"></div>
+        </article>
+
+        <article class="spotlight card spotlight-accent">
+          <div class="spotlight-label">Próxima avaliação</div>
+          <h2 id="next-eval-title">Carregando...</h2>
+          <p id="next-eval-summary"></p>
+          <div class="spotlight-meta" id="next-eval-meta"></div>
+        </article>
+      </section>
+
+      <section class="toolbar card">
+        <div>
+          <p class="section-label">Disciplinas</p>
+          <h3>Escolha uma disciplina para ver o cronograma completo</h3>
+        </div>
+        <div class="chips" id="discipline-chips"></div>
+      </section>
+
+      <section class="overview-grid">
+        <article class="card overview-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-label">Painel geral</p>
+              <h3>Resumo por disciplina</h3>
+            </div>
+            <span class="panel-hint">Toque em um cartão para detalhar</span>
+          </div>
+          <div class="course-grid" id="course-grid"></div>
+        </article>
+
+        <article class="card detail-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-label">Linha do tempo</p>
+              <h3 id="detail-title">Selecione uma disciplina</h3>
+            </div>
+            <span class="panel-hint" id="detail-subtitle"></span>
+          </div>
+          <div id="detail-list" class="detail-list"></div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
